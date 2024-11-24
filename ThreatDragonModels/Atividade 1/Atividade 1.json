@@ -1,0 +1,26 @@
+{
+  "version": "2.3.0-RC2",
+  "summary": {
+    "title": "Atividade 1",
+    "owner": "Ismália Santiago",
+    "description": "Faça a modelagem de ameaças do processo de login de uma aplicação convencional em Cloud.\nObs.: Leve em consideração desde os protocolos usados nas comunicações, como os possíveis ataques que esse processo pode receber.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "Diagrama STRIDE",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.3.0-RC2",
+        "cells": []
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 0
+  }
+}
