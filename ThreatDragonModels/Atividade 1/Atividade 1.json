@@ -296,7 +296,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -316,12 +317,31 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "bd70e848-6c22-4d20-a46a-b2eea5627e64",
+                  "title": "Tokens indevidamente armazenados no navegador",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Um atacante tem acesso indevido a tokens JWT armazenados localmente no local storage ou no session storage do navegador.",
+                  "mitigation": "Configurar tokens para serem armazenados como cookies seguros com HttpOnly e Secure.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "acessa"
@@ -722,8 +742,8 @@
                 "text": "Login"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -819,12 +839,41 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9d9fd748-8bf9-4134-82f5-fe86a07a5e5c",
+                  "title": "Múltiplos logins falhos",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Um usuário inocente (ou um atacante, quem sabe) realiza um número incomum de tentativas de login ou de acesso a recursos restritos.",
+                  "mitigation": "Implementar a análise contínua dos logs e a detecção de comportamentos anômalos para ajudar na identificação de atividades suspeitas, tornando mais difícil para um atacante negar que realizou uma ação.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -986,11 +1035,13 @@
                 "text": "Database: Users"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1086,13 +1137,33 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": true,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "2ee3c3de-2b13-4609-9c69-c42cc9852071",
+                  "title": "Manipulação de consultas SQL",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "O atacante pode injetar comandos SQL maliciosos em um formulário ou na URL, assim manipulando o comportamento do banco de dados.",
+                  "mitigation": "Utilizar queries parametrizadas para evitar que entradas maliciosas de usuários resultem na execução de comandos infelizes no banco de dados.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1214,7 +1285,7 @@
               "threats": [
                 {
                   "id": "884ac8b0-263d-4ade-91ea-7d8d8c110f26",
-                  "title": "Ataques de força bruta contra o Cognito",
+                  "title": "Ataques de força bruta",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Denial of service",
@@ -1231,7 +1302,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 2,
+                "denialOfService": 3,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1355,12 +1426,12 @@
               "threats": [
                 {
                   "id": "4c33ede4-a4d2-49f1-8d48-e5d47b277849",
-                  "title": "Manipulação de claims no JWT",
+                  "title": "Manipulação de permissões no JWT",
                   "status": "Open",
                   "severity": "Low",
                   "type": "Elevation of privilege",
                   "description": "Um atacante adquire permissões maiores do que as que deveriam ser designadas. Por exemplo, altera o campo \"role\" no payload para obter privilégios elevados.",
-                  "mitigation": "1. Validar a assinatura do JWT usando as chaves públicas do Amazon Cognito.\n2. Implementar políticas de menor privilégio no IAM.",
+                  "mitigation": "1. Implementar controle de acesso baseado em roles (RBAC) para garantir que os usuários só possam acessar os recursos que estão autorizados a acessar.\n2. Implementar políticas de menor privilégio no IAM.\n",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 7,
@@ -1373,15 +1444,8 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 2
+                "elevationOfPrivilege": 3
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           }
         ]
@@ -1389,6 +1453,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 8
+    "threatTop": 11
   }
 }
