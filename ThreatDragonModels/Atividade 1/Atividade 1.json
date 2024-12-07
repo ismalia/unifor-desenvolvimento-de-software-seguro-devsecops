@@ -130,7 +130,25 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": true,
-              "threats": []
+              "threats": [
+                {
+                  "id": "2311950f-0968-4ea8-9e34-06977e154934",
+                  "title": "Usuário safado",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Um usuário pode negar que realizou login após ter feito algo errado dentro do sistema.",
+                  "mitigation": "Registrar todas as ações de login e autenticação em logs protegidos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -1277,6 +1295,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 3
+    "threatTop": 4
   }
 }
