@@ -270,12 +270,12 @@
               "threats": [
                 {
                   "id": "acd9acd5-4d21-4f45-83ec-08bc60d56558",
-                  "title": "Uso de credenciais vazadas",
+                  "title": "Falsificação de solicitações",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Um atacante tenta se passar por um usuário legítimo usando credenciais vazadas que ele achou em um Pastebin.",
-                  "mitigation": "Implementar autenticação multifator (MFA).",
+                  "description": "Um atacante pode falsificar um pedido de login no frontend para se passar por um usuário legítimo.",
+                  "mitigation": "Verificar a origem das requisições no backend para prevenir CSRF (Cross-Site Request Forgery).",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 2,
@@ -283,7 +283,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 3,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
@@ -558,7 +558,12 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "manda pedido de autenticação"
@@ -749,6 +754,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -832,7 +838,6 @@
               ]
             },
             "id": "4dc1692c-a18a-4cce-915c-6c60e237fd54",
-            "zIndex": 11,
             "data": {
               "type": "tm.Process",
               "name": "Login",
@@ -857,23 +862,29 @@
                   "new": false,
                   "number": 5,
                   "score": ""
+                },
+                {
+                  "id": "f47c7cbc-ce27-405c-a541-d66bf6883cbc",
+                  "title": "Uso de credenciais vazadas",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Um atacante tenta se passar por um usuário legítimo usando credenciais vazadas que ele achou em um Pastebin.",
+                  "mitigation": "Implementar autenticação multifator (MFA).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "tampering": 0,
+                "spoofing": 3,
+                "tampering": 2,
                 "repudiation": 1,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -902,6 +913,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -985,7 +997,6 @@
               ]
             },
             "id": "3da1fb82-d5c5-44b9-b2eb-c906fbccfd3b",
-            "zIndex": 12,
             "data": {
               "type": "tm.Store",
               "name": "Amazon S3",
@@ -1047,6 +1058,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 13,
             "ports": {
               "groups": {
                 "top": {
@@ -1130,7 +1142,6 @@
               ]
             },
             "id": "ee8a10c0-8df5-4504-a8ea-ecc151112262",
-            "zIndex": 13,
             "data": {
               "type": "tm.Store",
               "name": "Database: Users",
@@ -1187,6 +1198,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 14,
             "ports": {
               "groups": {
                 "top": {
@@ -1270,7 +1282,6 @@
               ]
             },
             "id": "cc652915-5e99-4683-82c8-55fe38f3fd94",
-            "zIndex": 14,
             "data": {
               "type": "tm.Process",
               "name": "Amazon Cognito",
@@ -1328,6 +1339,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 15,
             "ports": {
               "groups": {
                 "top": {
@@ -1411,7 +1423,6 @@
               ]
             },
             "id": "ba82bb93-8dfd-4ac3-9810-3093d18c3b76",
-            "zIndex": 15,
             "data": {
               "type": "tm.Process",
               "name": "Context Application",
@@ -1453,6 +1464,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 11
+    "threatTop": 13
   }
 }
