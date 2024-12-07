@@ -31,8 +31,8 @@
                 "text": "Client"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -128,13 +128,13 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": true,
               "threats": [
                 {
                   "id": "2311950f-0968-4ea8-9e34-06977e154934",
                   "title": "Usuário safado",
-                  "status": "Mitigated",
+                  "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
                   "description": "Um usuário pode negar que realizou login após ter feito algo errado dentro do sistema.",
@@ -147,7 +147,7 @@
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "repudiation": 1
+                "repudiation": 2
               }
             }
           },
@@ -165,8 +165,8 @@
                 "text": "Frontend"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -262,12 +262,34 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": true,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "acd9acd5-4d21-4f45-83ec-08bc60d56558",
+                  "title": "Uso de credenciais vazadas",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Um atacante tenta se passar por um usuário legítimo usando credenciais vazadas que ele achou em um Pastebin.",
+                  "mitigation": "Implementar autenticação multifator (MFA).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -543,7 +565,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -563,12 +586,31 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "07b63b93-3bf0-43ac-89fe-6a4ee83818eb",
+                  "title": "Alteração de dados em trânsito",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Um atacante intercepta e altera requisições HTTP.",
+                  "mitigation": "1. Usar HTTPS/TLS para uma comunicação segura.\n2. Reforçar o uso de TLS 1.2 ou superior.\n3. Fazer uso apenas de certificados válidos e gerenciados como, por exemplo, os do Let’s Encrypt.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "JWT"
@@ -579,7 +621,8 @@
             },
             "target": {
               "cell": "ba82bb93-8dfd-4ac3-9810-3093d18c3b76"
-            }
+            },
+            "vertices": []
           },
           {
             "shape": "trust-boundary-curve",
@@ -1066,8 +1109,8 @@
                 "text": "Amazon Cognito"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1163,12 +1206,34 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "884ac8b0-263d-4ade-91ea-7d8d8c110f26",
+                  "title": "Ataques de força bruta contra o Cognito",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Um atacante pode direcionar seus esforços a sobrecarregar o Amazon Cognito com ataques de força bruta.\n",
+                  "mitigation": "1. Implementar um limite de tentativas de login como proteção contra ataques de força bruta no Amazon Cognito.\n2. Utilizar serviços de mitigação de DDoS da própria Amazon em conjunto com o Cognito, como o AWS Shield.\n3. Usar um WAF para filtrar requisições potencialmente maliciosas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1185,8 +1250,8 @@
                 "text": "Context Application"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1282,12 +1347,41 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "4c33ede4-a4d2-49f1-8d48-e5d47b277849",
+                  "title": "Manipulação de claims no JWT",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Elevation of privilege",
+                  "description": "Um atacante adquire permissões maiores do que as que deveriam ser designadas. Por exemplo, altera o campo \"role\" no payload para obter privilégios elevados.",
+                  "mitigation": "1. Validar a assinatura do JWT usando as chaves públicas do Amazon Cognito.\n2. Implementar políticas de menor privilégio no IAM.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 2
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           }
         ]
@@ -1295,6 +1389,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 4
+    "threatTop": 8
   }
 }
