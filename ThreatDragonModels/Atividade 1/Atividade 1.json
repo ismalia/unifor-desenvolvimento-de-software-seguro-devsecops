@@ -135,7 +135,7 @@
                   "id": "2311950f-0968-4ea8-9e34-06977e154934",
                   "title": "Usuário safado",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Repudiation",
                   "description": "Um usuário pode negar que realizou login após ter feito algo errado dentro do sistema.",
                   "mitigation": "Registrar todas as ações de login e autenticação em logs protegidos.",
@@ -147,7 +147,7 @@
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "repudiation": 2
+                "repudiation": 3
               }
             }
           },
@@ -283,7 +283,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 3,
+                "spoofing": 4,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
@@ -327,7 +327,7 @@
                   "id": "bd70e848-6c22-4d20-a46a-b2eea5627e64",
                   "title": "Tokens indevidamente armazenados no navegador",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "High",
                   "type": "Information disclosure",
                   "description": "Um atacante tem acesso indevido a tokens JWT armazenados localmente no local storage ou no session storage do navegador.",
                   "mitigation": "Configurar tokens para serem armazenados como cookies seguros com HttpOnly e Secure.",
@@ -339,7 +339,7 @@
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             },
@@ -632,7 +632,7 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 2,
+                "tampering": 3,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -854,7 +854,7 @@
                   "id": "9d9fd748-8bf9-4134-82f5-fe86a07a5e5c",
                   "title": "Múltiplos logins falhos",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Repudiation",
                   "description": "Um usuário inocente (ou um atacante, quem sabe) realiza um número incomum de tentativas de login ou de acesso a recursos restritos.",
                   "mitigation": "Implementar a análise contínua dos logs e a detecção de comportamentos anômalos para ajudar na identificação de atividades suspeitas, tornando mais difícil para um atacante negar que realizou uma ação.",
@@ -867,7 +867,7 @@
                   "id": "f47c7cbc-ce27-405c-a541-d66bf6883cbc",
                   "title": "Uso de credenciais vazadas",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "High",
                   "type": "Spoofing",
                   "description": "Um atacante tenta se passar por um usuário legítimo usando credenciais vazadas que ele achou em um Pastebin.",
                   "mitigation": "Implementar autenticação multifator (MFA).",
@@ -878,9 +878,9 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 3,
+                "spoofing": 4,
                 "tampering": 2,
-                "repudiation": 1,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -1027,7 +1027,7 @@
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 2,
+                "informationDisclosure": 3,
                 "denialOfService": 0
               }
             }
@@ -1170,7 +1170,7 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0
@@ -1313,7 +1313,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 3,
+                "denialOfService": 4,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1455,8 +1455,15 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 3
+                "elevationOfPrivilege": 4
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           }
         ]
